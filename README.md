@@ -1,5 +1,5 @@
 # I forgot what the title of this game is (haha get it it's called memory)
-[Play my own fun version of memory here!](https://www.youtube.com/watch?v=WZF64p6xKjc)
+[Play my own fun version of memory here!](https://besartelezi.github.io/memory-game/)
 
 Memory! A game beloved by many, but for those that aren't familiar with this game, do not worry! I'll try to give a short explanation. </br>
 
