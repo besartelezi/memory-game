@@ -17,3 +17,14 @@ The cards will have a name and an image URL. I might give them an ID number as w
 * Or should I create an array of cards without their copies, and have my Javascript code run through the deck **twice** to create the pairs.
 
 I would feel more comfortable going with the first option, but alas, momma didn't raise no beachgoer. So I will go with the second option and figure out a way to do this as efficiently as possible.
+
+What I want the function to do is:
+* Generate a random index number
+* Push the corresponding card of said index number to a new array
+* Once the new array contains two of the same cards, it will splice that card out of the original deck
+  * I think it might work, if I create a third array, that contains all the generated index numbers. 
+    * This won't work, since the splice function cuts out an object and this changes the entire array, so there is a big chance for the same index number to appear more than 2 times.
+* This will keep on going, until the array CardDeck is out of cards
+
+##### I still haven't found a way to solve this issue, so for the time being, I will just add the duplicates in the cardDeck. This is the easiest and most logical conclusion I could come up with.
+
