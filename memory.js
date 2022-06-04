@@ -35,3 +35,15 @@ let CardDeck = [
     },
 ]
 
+const StartTheGame = () => {
+    for (let i=0; i < CardDeck.length; i++){
+        let RandomCardIndex = Math.floor(Math.random()*CardDeck.length);
+        console.log(RandomCardIndex)
+        let RandomImage = document.createElement("img");
+        RandomImage.src ="images/backcard.png"
+        document.getElementById("PlayingField").appendChild(RandomImage);
+    }
+}
+
+document.getElementById("Start").addEventListener("click", StartTheGame)
+
