@@ -52,10 +52,10 @@ I added a name to the function (that "flip" in between the brackets), and referr
 ## Flipping Part Two : Electric Boogaloo
 Now, I need to add all the needed functionalities to the flipping function, what I want this function to do is:
 - [x] When the user clicks on a card, it will flip over.
-  - [ ] There can't be more than 2 cards visible on the field at the same time. 
+  - [x] There can't be more than 2 cards visible on the field at the same time. 
   - [ ] Once the user has flipped two cards, one of the following will happen
     - [ ] If the cards match, they will be removed from the playing field (and added to another array, called playerFoundPairs).
-    - [ ] If the cards don't match, the two cards will be simply flipped back.
+    - [x] If the cards don't match, the two cards will be simply flipped back.
   - [ ] Create an array that will be used to register what cards the user has flipped.
     - [ ] If the cards in that array match, then both those cards will be removed from selected cards array, to the found pairs array.
 

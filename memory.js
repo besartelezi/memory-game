@@ -92,13 +92,36 @@ const StartTheGame = () => {
     //flipping cards
     const backsideCards = document.getElementsByClassName("Cards");
     const flipCards = (flip) => {
-        console.log(flip.target.id);
-        console.log([currentCardsOnField[flip.target.id].name])
-        console.log(currentCardsOnField[flip.target.id].url)
-        flip.target.src = currentCardsOnField[flip.target.id].url
-    };
+        console.log(currentCardsOnField)
+        if (playerSelectCards.length === 2) {
+            for (let i = 0; i < 16 ; i++){
+                backsideCards[i].src = "images/backcard.png"
+            }
+            if (playerSelectCards[0].id === playerSelectCards[1].id) {
+                playerFoundPairs.push(playerSelectCards[0]);
+                playerFoundPairs.push(playerSelectCards[1]);
+                console.log(playerFoundPairs);
+
+                playerSelectCards = [];
+            }
+            else {
+                //empties the array of currently selected cards
+                playerSelectCards = [];
+                console.log(playerSelectCards)
+            }
+        }
+        else {
+            //flips the card
+            flip.target.src = currentCardsOnField[flip.target.id].url;
+            //adds flipped card to array where all flipped cards reside
+            playerSelectCards.push(currentCardsOnField[flip.target.id])
+        }
+        console.log(playerSelectCards[0].id)
+        console.log(playerSelectCards[1].id)
+    }
     for (let i =0; i < backsideCards.length; i++){
         backsideCards[i].addEventListener("click", flipCards)
     }
+
 }
 startButton.addEventListener("click", StartTheGame);
