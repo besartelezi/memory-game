@@ -28,3 +28,37 @@ What I want the function to do is:
 
 ##### I still haven't found a way to solve this issue, so for the time being, I will just add the duplicates in the cardDeck. This is the easiest and most logical conclusion I could come up with.
 
+## Flipping
+Flipping the cards is something that I have just figured out how to do and it is something that I'm really proud of. I'll explain why by adding my code here:
+````
+ const backsideCards = document.getElementsByClassName("Cards");
+    const flipCards = (flip) => {
+        console.log(flip.target.id);
+        console.log([currentCardsOnField[flip.target.id].name])
+        console.log(currentCardsOnField[flip.target.id].url)
+        flip.target.src = currentCardsOnField[flip.target.id].url
+    };
+    for (let i =0; i < backsideCards.length; i++){
+        backsideCards[i].addEventListener("click", flipCards)
+    }
+````
+I have finally found a way to select all elements of a class, and let a function run for all those elements within that class, without writing 421 lines of code. The following part is the most important of the code in my opinion.
+````
+const flipCards = (flip) => {
+        console.log(flip.target.id);
+````
+I added a name to the function (that "flip" in between the brackets), and referred to that in my code. By using the flip.target, I can select the things I want to select of whatever the user clicks on! Great success!
+
+## Flipping Part Two : Electric Boogaloo
+Now, I need to add all the needed functionalities to the flipping function, what I want this function to do is:
+- [x] When the user clicks on a card, it will flip over.
+  - [ ] There can't be more than 2 cards visible on the field at the same time. 
+  - [ ] Once the user has flipped two cards, one of the following will happen
+    - [ ] If the cards match, they will be removed from the playing field (and added to another array, called playerFoundPairs).
+    - [ ] If the cards don't match, the two cards will be simply flipped back.
+  - [ ] Create an array that will be used to register what cards the user has flipped.
+    - [ ] If the cards in that array match, then both those cards will be removed from selected cards array, to the found pairs array.
+
+This is everything I can currently think of. But as a precaution, I want to also write down that, since I'm working with index numbers and arrays, and these might cause issues depending on my current code, I might have to create an extra array, filled with empty divs, that will replace the cards on the field. Because:
+* Either the layout will be ruined and the user can't properly remember what cards were on the field in what position.
+* A bug can be caused in the code, since I'll be removing objects from the array, making it so that the index numbers of the backside of the cards might not correspond to the index numbers of the flipped images. This is highly unlikely though, but worth noting.

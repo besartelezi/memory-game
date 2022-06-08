@@ -70,6 +70,7 @@ let CardDeck = [
 ]
 let currentCardsOnField = [];
 let playerSelectCards = [];
+let playerFoundPairs = [];
 const buttonsArea = document.getElementById("Buttons");
 const startButton = document.getElementById("Start");
 
