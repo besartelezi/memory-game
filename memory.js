@@ -70,6 +70,8 @@ let CardDeck = [
 ]
 let currentCardsOnField = [];
 let playerSelectCards = [];
+const buttonsArea = document.getElementById("Buttons");
+const startButton = document.getElementById("Start");
 
 //places 16 cards on the field
 const StartTheGame = () => {
@@ -78,14 +80,24 @@ const StartTheGame = () => {
         let randomCard = CardDeck[RandomCardIndex];
         currentCardsOnField.push(randomCard);
         CardDeck.splice(RandomCardIndex, 1);
-        console.log(CardDeck)
-        console.log(currentCardsOnField)
         //Creating flipped cards
         let CardBackside = document.createElement("img");
         CardBackside.setAttribute("class", "Cards");
+        CardBackside.setAttribute("id", i)
         CardBackside.src ="images/backcard.png";
         document.getElementById("PlayingField").appendChild(CardBackside);
     }
+    buttonsArea.removeChild(startButton)
+    //flipping cards
+    const backsideCards = document.getElementsByClassName("Cards");
+    const flipCards = (flip) => {
+        console.log(flip.target.id);
+        console.log([currentCardsOnField[flip.target.id].name])
+        console.log(currentCardsOnField[flip.target.id].url)
+        flip.target.src = currentCardsOnField[flip.target.id].url
+    };
+    for (let i =0; i < backsideCards.length; i++){
+        backsideCards[i].addEventListener("click", flipCards)
+    }
 }
-document.getElementById("Start").addEventListener("click", StartTheGame)
-
+startButton.addEventListener("click", StartTheGame);
